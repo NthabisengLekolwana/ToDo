@@ -8,7 +8,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(45deg,blue,aqua);
+    background: linear-gradient(45deg,#001f3f,aqua);
 }
 #wrapper{
     width: 30%;
@@ -20,8 +20,14 @@ body{
 }
 #wrapper h1{
     text-transform: uppercase;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
+
+.task:first-of-type {
+    margin-top: 20px; /* Adds space between the first task and the wrapper */
+}
+
+
 #single-task{
     width: 353px;
     padding: 15px;
@@ -44,7 +50,7 @@ task{
 }
 .task input[type="checkbox"]{
     display: block;
-    
+
 }
 .task .delete{
     color: red;

@@ -44,6 +44,20 @@ function deleteTask(event) {
     event.target.parentElement.remove(); // Remove the parent task element
 }
 
+function toggleTaskCompletion(event) {
+    const task = event.target.parentElement; // Get the parent task <li>
+    const label = task.querySelector('label'); // Find the label element
+
+    // Toggle the completed class to mark the task as completed
+    if (event.target.checked) {
+        label.style.textDecoration = 'line-through'; // Strike-through the task label
+    } else {
+        label.style.textDecoration = 'none'; // Remove the strike-through when unchecked
+    }
+}
+
+
+
 // Attach event listener to the form
 const form = document.querySelector('form');
 form.addEventListener('submit', addTask);
