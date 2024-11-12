@@ -53,9 +53,12 @@ button{
     line-height: 35px;
 }
 .task input[type="checkbox"]{
-    display: block;
 
-}
+        display: inline-block; /* or use inline */
+        margin-right: 10px; /* Optional: to add space between the checkbox and the text */
+        vertical-align: middle; /* Align checkbox with text */
+    }
+    
 .task .delete{
     color: red;
     cursor: pointer;
