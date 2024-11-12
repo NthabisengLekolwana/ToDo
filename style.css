@@ -40,11 +40,11 @@ button{
     font-size: 18px;
 }
 
-ul.task {
+#tasks {
     list-style: none;
     padding-left: 0;
 }
-task{
+.task{
     margin-bottom: 5px;
     margin-top: 20px;
     background: #fff;
