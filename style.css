@@ -39,12 +39,16 @@ button{
     padding: 13px 18px;
     font-size: 18px;
 }
+
+ul.task {
+    list-style: none;
+    padding-left: 0;
+}
 task{
     margin-bottom: 5px;
     margin-top: 20px;
     background: #fff;
     color: aqua;
-    list-style: none;
     padding: 0 15px;
     line-height: 35px;
 }
