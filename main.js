@@ -87,6 +87,12 @@ function toggleTaskCompletion(event) {
     saveTasks();
 }
 
+// Attach event listener to the form
+const form = document.querySelector('form');
+form.addEventListener('submit', addTask);
+
+// Load the tasks from localStorage when the page loads
+window.addEventListener('load', loadTasks)
 
 
 // Attach event listener to the form
