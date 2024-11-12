@@ -1,5 +1,5 @@
 // Select the necessary elements
-const A = document.getElementById('task-area');
+//const A = document.getElementById('task-area');
 const B = document.getElementById('single-task');
 const C = document.getElementById('tasks');
 
@@ -61,6 +61,11 @@ function createTask(taskName, completed) {
         <span class="delete">&times;</span>
     `;
 
+    // Add event listener for task completion toggle
+    const checkbox = task.querySelector('input[type="checkbox"]');
+    checkbox.addEventListener('change', toggleTaskCompletion);
+
+
     // Add event listener for deleting the task
     const deleteButton = task.querySelector('.delete');
     deleteButton.addEventListener('click', deleteTask);
@@ -96,14 +101,14 @@ window.addEventListener('load', loadTasks)
 
 
 // Attach event listener to the form
-const form = document.querySelector('form');
-form.addEventListener('submit', addTask);
+//const form = document.querySelector('form');
+//form.addEventListener('submit', addTask);
 
-app.get('/about', (req, res) => {
-    res.send('About us');
-  });
+//app.get('/about', (req, res) => {
+  //  res.send('About us');
+  //});
   
-  app.get('/contact', (req, res) => {
-    res.send('Contact us at: contact@example.com');
-  });
+  //app.get('/contact', (req, res) => {
+   // res.send('Contact us at: contact@example.com');
+ // });
   
