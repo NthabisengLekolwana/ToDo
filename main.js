@@ -3,6 +3,33 @@ const A = document.getElementById('task-area');
 const B = document.getElementById('single-task');
 const C = document.getElementById('tasks');
 
+function loadTasks() {
+    // Get tasks from localStorage (if any)
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // Loop through the tasks and display them
+    tasks.forEach(task => {
+        const newTask = createTask(task.name, task.completed);
+        C.appendChild(newTask);
+    });
+}
+
+// Function to save tasks to localStorage
+function saveTasks() {
+    const tasks = [];
+    // Get all tasks from the list
+    const taskElements = C.querySelectorAll('li.task');
+    
+    taskElements.forEach(task => {
+        const taskName = task.querySelector('label').textContent;
+        const isCompleted = task.querySelector('input').checked;
+        tasks.push({ name: taskName, completed: isCompleted });
+    });
+
+    // Save the tasks to localStorage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 // Function to add a task
 function addTask(event) {
     event.preventDefault(); // Prevent form submission
@@ -13,21 +40,23 @@ function addTask(event) {
     if (taskName === '') return; // If the input is empty, don't do anything
 
     // Create the task element
-    const newTask = createTask(taskName);
+    const newTask = createTask(taskName,false);
 
     // Append the new task to the task list (C in this case)
     C.appendChild(newTask);
+
+    saveTasks();
 
     // Clear the input field after adding the task
     B.value = '';
 }
 
 // Function to create a task element
-function createTask(taskName) {
+function createTask(taskName, completed) {
     const task = document.createElement('li');
     task.classList.add('task');
     task.innerHTML = `
-        <input type="checkbox">
+        <input type="checkbox" ${completed ? 'checked' : ''}>
         <label>${taskName}</label>
         <span class="delete">&times;</span>
     `;
@@ -42,6 +71,7 @@ function createTask(taskName) {
 // Function to delete a task
 function deleteTask(event) {
     event.target.parentElement.remove(); // Remove the parent task element
+    saveTasks();
 }
 
 function toggleTaskCompletion(event) {
@@ -54,6 +84,7 @@ function toggleTaskCompletion(event) {
     } else {
         label.style.textDecoration = 'none'; // Remove the strike-through when unchecked
     }
+    saveTasks();
 }
 
 
