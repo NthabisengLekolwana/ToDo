@@ -37,7 +37,7 @@ body{
     padding: 15px;
 }
 button{
-    background: linear-gradient(45deg,skyblue,aquamarine);
+    background: linear-gradient(45deg,skyblue,#001f3f);
     border: none;
     color: #fff;
     padding: 13px 18px;
