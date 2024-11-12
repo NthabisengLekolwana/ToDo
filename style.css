@@ -54,9 +54,9 @@ button{
 }
 .task input[type="checkbox"]{
 
-        display: inline-block; /* or use inline */
-        margin-right: 10px; /* Optional: to add space between the checkbox and the text */
-        vertical-align: middle; /* Align checkbox with text */
+        display: inline-block; 
+        margin-right: 10px;
+        vertical-align: middle; 
     }
     
 .task .delete{
