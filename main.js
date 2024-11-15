@@ -8,7 +8,7 @@ function loadTasks() {
 
     // Loop through the tasks and display them
     tasks.forEach(task => {
-        const newTask = createTask(task.name, task.completed);
+        const newTask = createTask(task.name, task.completed, task.dueDate);
         C.appendChild(newTask);
     });
 }
@@ -22,7 +22,10 @@ function saveTasks() {
     taskElements.forEach(task => {
         const taskName = task.querySelector('label').textContent;
         const isCompleted = task.querySelector('input').checked;
-        tasks.push({ name: taskName, completed: isCompleted });
+        const dueDate = task.querySelector('.due-date') ? task.querySelector('.due-date').textContent.replace('Due: ', '') : null;
+        tasks.push({ name: taskName, completed: isCompleted, dueDate: dueDate || '' });
+
+    
     });
 
     // Save the tasks to localStorage
@@ -35,11 +38,12 @@ function addTask(event) {
 
     // Get the task name from the input field
     const taskName = B.value; // Assuming B is the input field
+    const dueDate = document.getElementById('due-date').value; // Get the due date
 
     if (taskName === '') return; // If the input is empty, don't do anything
 
     // Create the task element
-    const newTask = createTask(taskName,false);
+    const newTask = createTask(taskName,false,dueDate);
 
     // Append the new task to the task list (C in this case)
     C.appendChild(newTask);
@@ -48,15 +52,17 @@ function addTask(event) {
 
     // Clear the input field after adding the task
     B.value = '';
+    document.getElementById('due-date').value = ''; // Clear the due date input
 }
 
 // Function to create a task element
-function createTask(taskName, completed) {
+function createTask(taskName, completed, dueDate) {
     const task = document.createElement('li');
     task.classList.add('task');
     task.innerHTML = `
         <input type="checkbox" ${completed ? 'checked' : ''}>
         <label>${taskName}</label>
+        <span class="due-date">${dueDate ? `Due: ${new Date(dueDate).toLocaleDateString()}` : ''}</span>
         <span class="delete">&times;</span>
     `;
 
