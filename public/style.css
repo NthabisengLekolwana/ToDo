@@ -1,0 +1,92 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap'); */
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Figtree", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg,#001f3f,aqua);
+}
+#wrapper{
+    width: 30%;
+    margin: 0 auto;
+    box-shadow: 0 2px 20px rgba(0, 0, 0,0.5);
+    padding: 50px;
+    color: #fff;
+    background: radial-gradient(#353a4a,#000);
+}
+#wrapper h1{
+    text-transform: uppercase;
+    margin-bottom: 10%;
+    background: linear-gradient(45deg,skyblue,#001f3f);
+}
+h1{
+    color: rgb(255, 255, 255);
+    t
+}
+
+.task:first-of-type {
+    margin-top: 20px; /* Adds space between the first task and the wrapper */
+}
+
+
+#single-task{
+    width: 353px;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+button{
+    background: linear-gradient(45deg,skyblue,#001f3f);
+    border: none;
+    color: #fff;
+    padding: 13px 18px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+#tasks {
+    list-style: none;
+    padding-left: 0;
+}
+.task{
+    margin-bottom: 5px;
+    margin-top: 20px;
+    /* background: #fff; */
+    background: linear-gradient(145deg,#1a22698e ,transparent );
+    color: rgb(1, 36, 58);
+    padding: 0 15px;
+    line-height: 35px;
+    border-radius: 8px;
+}
+.task input[type="checkbox"]{
+
+        display: inline-block; 
+        margin-right: 10px;
+        vertical-align: middle; 
+    }
+    
+.task .delete{
+    color: red;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 0;
+    float: right;
+}
+.centerText{
+text-align: center;
+font-size: 40px;
+padding: 40px 30px;
+}
+.due-date {
+    color: #888;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
